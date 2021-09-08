@@ -32,4 +32,3 @@ class Graph:
         return False
 
 
-objects = []
