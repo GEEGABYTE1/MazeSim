@@ -3,21 +3,21 @@ from vertex import Vertex
 
 
 
-graph = Graph()
+graph = Graph(True)
 
 objects = []
 
 vertex_one = Vertex('a', 1, 5)
-vertex_two = Vertex('b', 1, 10)
-vertex_three = Vertex('c', 1, 15)
+vertex_two = Vertex('b', 2, 10)
+vertex_three = Vertex('c', 3, 15)
 
-vertex_four = Vertex('d', 2, 6)
-vertex_five = Vertex('e', 2, 12)
-vertex_six = Vertex('*', 2, 18)
+vertex_four = Vertex('d', 4, 6)
+vertex_five = Vertex('e', 5, 12)
+vertex_six = Vertex('*', 6, 18)
 
-vertex_seven = Vertex('f', 3, 7)
-vertex_eight = Vertex('g', 3, 14)
-vertex_nine = Vertex('h', 3, 21)
+vertex_seven = Vertex('f', 7, 7)
+vertex_eight = Vertex('g', 8, 14)
+vertex_nine = Vertex('h', 9, 21)
 
 objects.append(vertex_one)
 objects.append(vertex_two)
@@ -40,7 +40,7 @@ graph.add_vertex(vertex_eight)
 graph.add_vertex(vertex_nine)
 
 graph.add_edge(vertex_one, vertex_three, 4)
-graph.add_edge(vertex_one, vertex_six, 11)
+graph.add_edge(vertex_one, vertex_five, 11)
 
 graph.add_edge(vertex_three, vertex_seven, 5)
 graph.add_edge(vertex_seven, vertex_eight, 8)
@@ -48,10 +48,10 @@ graph.add_edge(vertex_eight, vertex_four, 9)
 graph.add_edge(vertex_four, vertex_nine, 2)
 
 graph.add_edge(vertex_nine, vertex_two, 1)
-graph.add_edge(vertex_two, vertex_six, 10)
+graph.add_edge(vertex_two, vertex_five, 10)
 
-graph.add_edge(vertex_six, vertex_five, 7)
-graph.add_edge(vertex_three, vertex_five, 3)
-graph.add_edge(vertex_eight, vertex_five, 6)
-graph.add_edge(vertex_nine, vertex_five, 0)
+graph.add_edge(vertex_five, vertex_six, 7)
+graph.add_edge(vertex_three, vertex_six, 3)
+graph.add_edge(vertex_eight, vertex_six, 6)
+graph.add_edge(vertex_nine, vertex_six, 0)
 
