@@ -1,6 +1,23 @@
-from graph import*
+from nodes import*
 from heapq import heappop, heappush
 from math import inf, sqrt 
+import time
+
+dictionary = {}
+for vertex, edge in graph.graph_dict.items():
+    for vertex_obj in objects:
+        if vertex == vertex_obj.value:
+            new_lst = []
+            edges = edge.edges
+            for neighbour, weight in edges.items():
+                for neighbour_obj in objects:
+                    if neighbour_obj.value == neighbour:
+                        new_lst.append((neighbour_obj, weight))
+        
+            dictionary[vertex_obj] = new_lst 
+
+print(dictionary)
+
 
 def man_heuristic(start, target):
     x_distance = abs(start.position[0] - target.position[0])
@@ -11,7 +28,7 @@ def eu_heuristic(start, target):
     x_distance = abs(start.position[0] - target.position[0])
     y_distance = abs(start.position[1] - target.position[1])
 
-def a_star(graph, start, target):
+def a_star(start, target, graph=dictionary):
     count = 0
     paths_and_distance = {}
     for vertex in graph.keys():
@@ -26,27 +43,18 @@ def a_star(graph, start, target):
             new_path = paths_and_distance[current_vertex][1] + [neighbour.value]
 
             if new_distance < paths_and_distance[neighbour][0]:
+                 
                 paths_and_distance[neighbour][0] = new_distance
-                paths_and_distance[neighbour][1] = new_path 
+                paths_and_distance[neighbour][1] = new_path
+                time.sleep(0.1)
+                print(paths_and_distance[neighbour][1])
                 heappush(vertices_to_explore, (new_distance, neighbour))
                 count += 1
+
+    print('\n') 
+    print('Path found in {num} steps with a total distance of {dist}!'.format(num=count, dist=paths_and_distance[target][0]))
     
-    print('Path found in {num} steps'.format(num=count))
     return paths_and_distance[target][1]
 
-
-
-dictionary = {}
-for vertex, edge in graph.graph_dict.items():
-    for vertex_obj in objects:
-        if vertex == vertex_obj.value:
-            new_lst = []
-            edges = edge.edges
-            for neighbour, weight in edges.items():
-                for neighbour_obj in objects:
-                    if neighbour_obj.value == neighbour:
-                        new_lst.append((neighbour_obj, weight))
-        
-            dictionary[vertex_obj] = new_lst 
 
 
