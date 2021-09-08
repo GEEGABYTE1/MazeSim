@@ -1,6 +1,16 @@
 from nodes import graph
 
-def bfs(graph, start_vertex, target):
+bfs_graph = {}
+
+for vertex, edge in graph.graph_dict.items():
+    lst = []
+    edge = edge.edges 
+    for neighbour in edge.keys():
+        lst.append(neighbour)
+    
+    bfs_graph[vertex] = lst 
+
+def bfs(start_vertex, target, graph=bfs_graph):
     path = [start_vertex]
     vertex_and_path = [start_vertex, path]
     bfs_queue = [vertex_and_path]
@@ -14,7 +24,7 @@ def bfs(graph, start_vertex, target):
                 if not neighbour in visited:
                     if neighbour == target:
                         path.append(neighbour)
-                        return path 
+                        return True
                     else:
                         path.append(neighbour)
                         bfs_queue.append([neighbour, path])
@@ -23,15 +33,7 @@ def bfs(graph, start_vertex, target):
         
     return None
 
-bfs_graph = {}
 
-for vertex, edge in graph.graph_dict.items():
-    lst = []
-    edge = edge.edges 
-    for neighbour in edge.keys():
-        lst.append(neighbour)
-    
-    bfs_graph[vertex] = lst 
 
 
 
