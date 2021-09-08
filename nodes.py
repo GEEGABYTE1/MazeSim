@@ -1,7 +1,9 @@
 from graph import*
 from vertex import Vertex
 
-graph = Graph(True)
+
+
+graph = Graph()
 
 objects = []
 
@@ -37,15 +39,19 @@ graph.add_vertex(vertex_seven)
 graph.add_vertex(vertex_eight)
 graph.add_vertex(vertex_nine)
 
-ref_num = 0
-while ref_num != len(objects):
-    for vertex in range(len(objects)):
-        cur_vertex = objects[ref_num]
-        if vertex == ref_num:
-            continue 
-        else:
-            graph.add_edge(cur_vertex, objects[vertex])
-    
-    ref_num += 1
+graph.add_edge(vertex_one, vertex_three, 4)
+graph.add_edge(vertex_one, vertex_six, 11)
 
+graph.add_edge(vertex_three, vertex_seven, 5)
+graph.add_edge(vertex_seven, vertex_eight, 8)
+graph.add_edge(vertex_eight, vertex_four, 9)
+graph.add_edge(vertex_four, vertex_nine, 2)
+
+graph.add_edge(vertex_nine, vertex_two, 1)
+graph.add_edge(vertex_two, vertex_six, 10)
+
+graph.add_edge(vertex_six, vertex_five, 7)
+graph.add_edge(vertex_three, vertex_five, 3)
+graph.add_edge(vertex_eight, vertex_five, 6)
+graph.add_edge(vertex_nine, vertex_five, 0)
 
