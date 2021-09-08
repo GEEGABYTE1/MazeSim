@@ -1,4 +1,6 @@
 from bfs import bfs 
+from a_star import a_star
+from nodes import objects
 import time
 
 class Search:
@@ -12,6 +14,7 @@ class Search:
             prompt = prompt.strip(" ")
             prompt = prompt.lower()
             check = bfs(prompt, '*')
+            final_obj_object = self.star_object_finder()
             if check == None:
                 time.sleep(0.4)
                 print("That letter does not seem valid")
@@ -22,7 +25,23 @@ class Search:
                 print("Your letter is valid...")
                 time.sleep(0.2)
                 print("Starting the Search Simulation now...")
-                
+                prompt_object = self.prompt_object_finder(prompt)
+                a_star_sim = a_star(prompt_object, final_obj_object)
+
+    
+    def prompt_object_finder(self, prompt):
+        prompt_obj = None 
+        for vertex in objects:
+            if vertex.value == prompt:
+                prompt_obj = vertex 
+                break 
+
+    def star_object_finder(self):
+        final_obj = None 
+        for vertex in objects:
+            if vertex.value == '*':
+                final_obj = vertex 
+                break             
 
 
     def intro(self):
