@@ -36,12 +36,16 @@ class Search:
                 prompt_obj = vertex 
                 break 
 
+        return prompt_obj
+
     def star_object_finder(self):
         final_obj = None 
         for vertex in objects:
             if vertex.value == '*':
                 final_obj = vertex 
-                break             
+                break  
+
+        return final_obj           
 
 
     def intro(self):
