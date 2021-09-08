@@ -24,9 +24,13 @@ class Search:
                 time.sleep(0.4)
                 print("Your letter is valid...")
                 time.sleep(0.2)
+                print('\n')
                 print("Starting the Search Simulation now...")
                 prompt_object = self.prompt_object_finder(prompt)
+                time.sleep(0.32)
                 a_star_sim = a_star(prompt_object, final_obj_object)
+                print('-'*12)
+                print(a_star_sim)
 
     
     def prompt_object_finder(self, prompt):
