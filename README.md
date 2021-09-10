@@ -28,4 +28,6 @@ After finding the vertex objects, the A* algorithm commences. The base algorithm
 
 # User Customizability
 
+Users can customize the nodes and their position by altering the graph in `nodes.py`. Users must add a vertex with a vertex object (`Vertex(value, x_position, y_position)`), and must append it to the base *objects* list. After that, users will the new vertex to the physical graph, `graph`, and can connect the vertex with other vertices with the command: `graph.add_edge(new_vertex, another_vertex_in_graph, edge_weight)` or `graph.add_edge(another_vertex_in_graph, new_vertex, edge_weight)`. 
 
+Users can also alter the heuristics for A* and implement their own. 
