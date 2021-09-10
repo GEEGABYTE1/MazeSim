@@ -6,8 +6,26 @@ The A* algorithm runs in `O(b^d)` time where `b` represents the branching factor
 
 # The Graph 
 
-The base graph is implemented as: 
-https://github.com/GEEGABYTE1/MazeSim/blob/master/Graph%20Visual%201.png
+The Graph can be visualized as a simple 3x3 matrix (without taking into consideration the coordinates): 
 
+<p align="center">
+  <img src="https://github.com/GEEGABYTE1/MazeSim/blob/master/Graph%20Visual%201.png" width="500">
+</p>
+
+However, with the coordinates, we can visualize how the graph actually looks like:
+<p align="center">
+  <img src="https://github.com/GEEGABYTE1/MazeSim/blob/master/Visual%202.png" width="500">
+</p>
+
+# The Simulation Run-through 
+
+The user will first be prompted to enter a letter. With the use of the BFS algorithm, the program quickly scans the graph and searches the node in the graph. If the node value inputted by the user is not valid, then the simulation won't start and the user will be prompted again. However, if the value of the node is valid, with the use of the `.prompt_object_finder()` function, we find the vertex object that has the corresponding user value. We do this for the value, `*`, as well since our A* algorithm takes vertex objects as inputs. 
+
+After finding the vertex objects, the A* algorithm commences. The base algorithm implementation uses the *Manhattan Heuristic*, however, I have implemented an *Eucliden Heuristic*, which can be implemented by chaning the statement:
+`new_distance = current_distance + edge_weight + *heuristic_name*(neighbour, target)`.
+
+*Note*: Heuristic functions are defined above the algorithm as well for reference. 
+
+# User Customizability
 
 
